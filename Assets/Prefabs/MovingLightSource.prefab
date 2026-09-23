@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8777281440712192642}
   - component: {fileID: 142517064048392865}
   - component: {fileID: 4724602450871746871}
+  - component: {fileID: -8468785550772523025}
   m_Layer: 6
   m_Name: MovingLightSource
   m_TagString: Untagged
@@ -155,3 +156,18 @@ MonoBehaviour:
   endingPosition: {x: 0, y: 0, z: 0}
   d: 1
   speed: 2
+--- !u!114 &-8468785550772523025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238063984138736053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca19523a853a45c6bcd2df5d419e93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightWindowCollider
+  platform: {fileID: 0}
+  platformWidth: 10
+  radius: 1.5

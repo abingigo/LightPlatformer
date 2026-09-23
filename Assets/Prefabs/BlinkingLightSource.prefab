@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2402100021847265812}
   - component: {fileID: 4427249046997755727}
   - component: {fileID: 3778086020012141340}
-  m_Layer: 0
+  - component: {fileID: 1389688231636132250}
+  m_Layer: 6
   m_Name: BlinkingLightSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,3 +154,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlinkingLight
   box: {fileID: 4427249046997755727}
   sprite: {fileID: 2402100021847265812}
+--- !u!114 &1389688231636132250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3619771127138591876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca19523a853a45c6bcd2df5d419e93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightWindowCollider
+  platform: {fileID: 0}
+  platformWidth: 10
+  radius: 1.5

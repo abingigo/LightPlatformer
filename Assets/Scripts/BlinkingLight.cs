@@ -1,38 +1,34 @@
 using UnityEngine;
-using System;
 using System.Collections;
 
+/// Only controls the light's visual on/off state -- does NOT touch the
+/// BoxCollider2D. LightWithCollider reads IsOn from here and is the single
+/// script responsible for the collider, so the two never fight over it.
 public class BlinkingLight : MonoBehaviour
 {
-
-    public BoxCollider2D box;
     public SpriteRenderer sprite;
 
-    private IEnumerator coroutine;
+    public bool IsOn { get; private set; } = true;
 
-    public void Start()
+    void Start()
     {
         StartCoroutine(Blink());
     }
 
-    bool on = true;
-
     IEnumerator Blink()
     {
-        while(true)
+        while (true)
         {
-            if(on)
+            if (IsOn)
             {
-                box.enabled = false;
                 sprite.enabled = false;
-                on = false;
+                IsOn = false;
                 yield return new WaitForSeconds(1f);
             }
             else
             {
-                box.enabled = true;
                 sprite.enabled = true;
-                on = true;
+                IsOn = true;
                 yield return new WaitForSeconds(2f);
             }
         }
