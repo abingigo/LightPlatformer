@@ -11,7 +11,15 @@ public class SimplePlayerController2D : MonoBehaviour
 
     Rigidbody2D rb;
     bool isGrounded;
-
+    bool isDashing;
+    bool isCoolDownReady = true;
+    float moveX;
+    float moveY;
+    bool dashReady = true;
+    [Header("Dash Settings")]
+    [SerializeField] private float dashSpeed = 10f;
+    [SerializeField] private float dashDuration = 1f;
+    [SerializeField] private float dashCooldown = 1f;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,8 +29,23 @@ public class SimplePlayerController2D : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);
 
-        float moveX = Input.GetAxisRaw("Horizontal");
-
+        moveX = Input.GetAxisRaw("Horizontal");
+        moveY = 0;
+        if (Input.GetButton("Jump"))
+        {
+            moveY = 1;
+        }
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            dashReady = true;
+        }
+        if (isDashing)
+        {
+            return;
+        }
+        if(isGrounded == true){
+            isCoolDownReady = true;
+        }
         Vector2 v = rb.linearVelocity;
         v.x = moveX * moveSpeed;
         rb.linearVelocity = v;
@@ -32,6 +55,34 @@ public class SimplePlayerController2D : MonoBehaviour
             v = rb.linearVelocity;
             v.y = jumpForce;
             rb.linearVelocity = v;
+            moveY = 1;
         }
-    }
+        // getKey is always active when the leftshift is pressed, while getKeydown is active only at the frame when shift is pressed
+        if (Input.GetKey(KeyCode.LeftShift) && (moveX != 0 || moveY != 0) && (dashReady == true) && (isCoolDownReady == true))
+            {
+                dashReady = false;
+                isDashing = true;
+                //isCoolDownReady = false;
+                Vector2 dashDirection =  new Vector2(rb.linearVelocity.x * 2f, rb.linearVelocity.y).normalized;
+                rb.linearVelocity = dashDirection * dashSpeed;
+
+                Invoke(nameof(StopDash), dashDuration);
+                //you dont want players to cheat by keep dashing by when they are not grounded(they can fly by doing this trick)
+                if(isGrounded == false){// now they cant dash again unless they touched the grass.
+                    isCoolDownReady = false;
+                }
+                //Invoke(nameof(ResetCooldown), dashDuration + dashCooldown);
+            }
+        }
+        private void StopDash()
+        {
+            isDashing = false;
+        }
+        private void ResetCooldown()
+        {
+            isCoolDownReady = true;
+        }
+        
+
+
 }
