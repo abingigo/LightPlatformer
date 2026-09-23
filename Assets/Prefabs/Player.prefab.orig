@@ -10,10 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6202738342181332388}
   - component: {fileID: 2304613117365614979}
+<<<<<<< Updated upstream
+  - component: {fileID: 2717417769597092472}
+=======
   - component: {fileID: 7618815078754844331}
   - component: {fileID: 7567501410273521280}
   - component: {fileID: 8331345853875592717}
   - component: {fileID: -7189678497009008597}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -96,6 +100,9 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
+--- !u!114 &2717417769597092472
+=======
 --- !u!61 &7618815078754844331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,6 +177,7 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &8331345853875592717
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,6 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4251545105464418845}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
@@ -221,6 +230,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+=======
   m_Script: {fileID: 11500000, guid: a92bcf32b547343688906c4711847114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimplePlayerController2D
@@ -270,6 +280,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+>>>>>>> Stashed changes
 --- !u!1 &8546619722245820698
 GameObject:
   m_ObjectHideFlags: 0

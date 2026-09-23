@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5251971365772815174}
-  - component: {fileID: 4724602450871746871}
   - component: {fileID: 6463115130651525708}
   - component: {fileID: 3810358043804360459}
+  - component: {fileID: 1440131024510267514}
   m_Layer: 0
-  m_Name: MovingLightSource
+  m_Name: ControllableLightSource
   m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,22 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4724602450871746871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7238063984138736053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae50c1f57f7e42c09ab6b5b02008b38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovingLight
-  startingPosition: {x: 0, y: 0, z: 0}
-  endingPosition: {x: 15, y: 0, z: 0}
-  d: 1
-  speed: 2
 --- !u!114 &6463115130651525708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +136,16 @@ PolygonCollider2D:
       - {x: -1.1895702, y: 5.976033}
       - {x: 1.2641556, y: 5.9800715}
   m_UseDelaunayMesh: 1
+--- !u!114 &1440131024510267514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238063984138736053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd1c2dc7f4814cb4a66ab10fcba04bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlLightSource
+  turnSpeed: 720
