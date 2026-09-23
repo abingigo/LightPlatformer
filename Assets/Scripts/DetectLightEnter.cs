@@ -6,6 +6,7 @@ public class DetectlLightEnter : MonoBehaviour
 
     void OnTriggerExit2D( Collider2D other)
     {
+        if (!enabled) return; 
         characterInQuicksand = false;
         if (other.CompareTag("Player"))
         {
