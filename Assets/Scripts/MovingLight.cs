@@ -22,6 +22,6 @@ public class MovingLight : MonoBehaviour
         }
 
         float move = (d == Direction.Left) ? -speed : speed;
-        transform.Translate(Vector3.right * move * Time.deltaTime);
+        transform.Translate(Vector3.right * move * Time.deltaTime, Space.World);
     }
 }
