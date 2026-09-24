@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerLightTracker : MonoBehaviour
 {
     public Collider2D collisionBox;
-
+    public bool hasLantern = false; //to check if player has a lantern.
     public string lightTag = "Light";
 
     readonly List<Collider2D> lightsInside = new List<Collider2D>();
@@ -35,6 +35,11 @@ public class PlayerLightTracker : MonoBehaviour
     void UpdateCollision()
     {
         if (collisionBox == null) return;
-        collisionBox.enabled = lightsInside.Count > 0;
+        collisionBox.enabled = hasLantern || lightsInside.Count > 0;//collision box will be set to TRUE as long as player has the lantern
+    }
+    public void DropLantern() // reserved for lantern timer
+    {
+    hasLantern = false;
+    UpdateCollision(); // check if player is still in the light, if they are, keep the collision box on
     }
 }
