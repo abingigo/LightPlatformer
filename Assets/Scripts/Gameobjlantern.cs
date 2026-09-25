@@ -4,7 +4,7 @@ public class LanternPickup : MonoBehaviour
 
 {
     public GameObject playerLantern;
-     public Collider2D platform;
+    public Collider2D platform;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;

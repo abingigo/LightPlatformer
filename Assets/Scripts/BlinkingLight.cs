@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
-/// Only controls the light's visual on/off state -- does NOT touch the
-/// BoxCollider2D. LightWithCollider reads IsOn from here and is the single
-/// script responsible for the collider, so the two never fight over it.
+
 public class BlinkingLight : MonoBehaviour
 {
-    public SpriteRenderer sprite;
     public Light2D light2D;
     public bool IsOn { get; private set; } = true;
 
+    CircleCollider2D col;
+
     void Start()
     {
+        col = GetComponent<CircleCollider2D>();
         StartCoroutine(Blink());
     }
 
@@ -21,16 +21,16 @@ public class BlinkingLight : MonoBehaviour
         {
             if (IsOn)
             {
-                sprite.enabled = false;
                 light2D.enabled = false;
                 IsOn = false;
+                col.enabled = false;
                 yield return new WaitForSeconds(1f);
             }
             else
             {
-                sprite.enabled = true;
                 light2D.enabled = true;
                 IsOn = true;
+                col.enabled = true;
                 yield return new WaitForSeconds(2f);
             }
         }
